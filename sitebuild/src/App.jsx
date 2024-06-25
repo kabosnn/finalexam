@@ -1,3 +1,7 @@
+import Header from './Components/Header';
+import CatCard from './Components/CatCard';
+import "../index.css"
+
 const cats = [
   {
     id: 1,
@@ -19,10 +23,20 @@ const cats = [
   },
 ];
 
-function App() {
+export default function App() {
   return (
-    <h1>App</h1>
+    <div className="app">
+      <Header />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+        {cats.map((cat) => (
+          <CatCard
+            key={cat.id}
+            name={cat.name}
+            image={cat.image}
+            description={cat.description}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
-
-export default App;
